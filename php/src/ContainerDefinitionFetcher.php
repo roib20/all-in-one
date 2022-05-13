@@ -102,8 +102,13 @@ class ContainerDefinitionFetcher
                         continue;
                     }
                 }
-                if($value['location'] === '%NEXTCLOUD_MOUNT%') {
+                if ($value['location'] === '%NEXTCLOUD_MOUNT%') {
                     $value['location'] = $this->configurationManager->GetNextcloudMount();
+                    if($value['location'] === '') {
+                        continue;
+                    }
+                } elseif ($value['location'] === '%DOCKER_SOCKET_PATH%') {
+                    $value['location'] = $this->configurationManager->GetDockerSocketPath();
                     if($value['location'] === '') {
                         continue;
                     }
