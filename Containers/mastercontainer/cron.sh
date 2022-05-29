@@ -22,6 +22,7 @@ while true; do
         while [ "$(date +%H:%M)" != "$BACKUP_TIME" ]; do 
             sleep 1
         done
+        sleep 1
     fi
 
     if [ "$DAILY_BACKUP" = 1 ]; then
