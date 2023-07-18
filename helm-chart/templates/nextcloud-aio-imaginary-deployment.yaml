@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   annotations:
     kompose.cmd: kompose convert -c -f latest.yml
-    kompose.version: 1.28.0 (c4137012e)
+    kompose.version: 1.29.0 (997957870)
   labels:
     io.kompose.service: nextcloud-aio-imaginary
   name: nextcloud-aio-imaginary
@@ -17,7 +17,7 @@ spec:
     metadata:
       annotations:
         kompose.cmd: kompose convert -c -f latest.yml
-        kompose.version: 1.28.0 (c4137012e)
+        kompose.version: 1.29.0 (997957870)
       labels:
         io.kompose.network/nextcloud-aio: "true"
         io.kompose.service: nextcloud-aio-imaginary
@@ -26,7 +26,7 @@ spec:
         - env:
             - name: TZ
               value: "{{ .Values.TIMEZONE }}"
-          image: nextcloud/aio-imaginary:20230124_100035-{{ .Values.IMAGE_TAG }}
+          image: nextcloud/aio-imaginary:20230626_101439-{{ .Values.IMAGE_TAG }}
           name: nextcloud-aio-imaginary
           ports:
             - containerPort: 9000
