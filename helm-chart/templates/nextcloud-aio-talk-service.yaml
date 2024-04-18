@@ -4,11 +4,12 @@ kind: Service
 metadata:
   annotations:
     kompose.cmd: kompose convert -c -f latest.yml
-    kompose.version: 1.28.0 (c4137012e)
+    kompose.version: 1.29.0 (997957870)
   labels:
     io.kompose.service: nextcloud-aio-talk
   name: nextcloud-aio-talk
 spec:
+  type: LoadBalancer
   ports:
     - name: "{{ .Values.TALK_PORT }}"
       port: {{ .Values.TALK_PORT }}
@@ -17,6 +18,9 @@ spec:
       port: {{ .Values.TALK_PORT }}
       protocol: UDP
       targetPort: {{ .Values.TALK_PORT }}
+    - name: "8081"
+      port: 8081
+      targetPort: 8081
   selector:
     io.kompose.service: nextcloud-aio-talk
 {{- end }}
